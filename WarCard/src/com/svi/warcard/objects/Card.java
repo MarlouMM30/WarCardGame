@@ -2,7 +2,7 @@ package com.svi.warcard.objects;
 
 public class Card {
 
-	private int rankValue, suitWeight, cardValue;
+	private int rankValue, suitWeight;
 	private String rankIdentity, suitIdentity;
 
 	public Card(int rankValue, String rankIdentity, int suitWeight, String suitIdentity) {
@@ -10,7 +10,6 @@ public class Card {
 		this.rankIdentity = rankIdentity;
 		this.suitWeight = suitWeight;
 		this.suitIdentity = suitIdentity;
-		this.cardValue = 4 * rankValue + 1 * suitWeight;
 	}
 	
 	public int getRankValue() {
@@ -43,14 +42,6 @@ public class Card {
 
 	public void setSuitIdentity(String suitIdentity) {
 		this.suitIdentity = suitIdentity;
-	}
-
-	public int getCardValue() {
-		return cardValue;
-	}
-
-	public void setCardValue(int cardValue) {
-		this.cardValue = cardValue;
 	}
 
 	public String toString() {
