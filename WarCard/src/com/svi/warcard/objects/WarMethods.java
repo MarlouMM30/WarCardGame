@@ -10,12 +10,10 @@ public class WarMethods extends ArrayList<Card> {
 	public void populate() {
 
 		for (Suits suits : Suits.values()) {
-			
 			for (Rank rank : Rank.values()) {
-				
 				Card cards = new Card(rank.getRankValue(), rank.getRankIdentity(), suits.getSuitWeight(),
 						suits.getSuitIdentity());
-				
+
 				this.add(cards);
 
 			}
@@ -25,25 +23,25 @@ public class WarMethods extends ArrayList<Card> {
 	public static ArrayList<Card> shuffleDeck(int numShuffles, ArrayList<Card> deck) {
 
 		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
-		ArrayList<Card> sameDeck = new ArrayList<Card>();
+		ArrayList<Card> tempoDeck = new ArrayList<Card>();
 
 		for (int i = 0; i < numShuffles; i++) {
-			
+
 			if (shuffledDeck.isEmpty()) {
-				sameDeck = deck;
+				tempoDeck = deck;
 
 			} else {
-				sameDeck = shuffledDeck;
+				tempoDeck = shuffledDeck;
 
 			}
 
 			shuffledDeck = new ArrayList<Card>();
 
 			for (int j = 0; j < 26; j++) {
-				
+
 				int k = j + 26;
-				shuffledDeck.add(sameDeck.get(j));
-				shuffledDeck.add(sameDeck.get(k));
+				shuffledDeck.add(tempoDeck.get(j));
+				shuffledDeck.add(tempoDeck.get(k));
 
 			}
 		}
@@ -53,7 +51,8 @@ public class WarMethods extends ArrayList<Card> {
 
 	public static void distributeCards(int numPlayers, List<Players> playersList, List<Card> deck) {
 
-		while (!deck.isEmpty()){
+		while (!deck.isEmpty())
+
 			for (int i = 0; i < numPlayers; i++) {
 				playersList.get(i).getHandCards().add(deck.get(0));
 				deck.remove(0);
@@ -70,7 +69,7 @@ public class WarMethods extends ArrayList<Card> {
 			System.out.println(player.getPlayerName() + player.getPlayerNumber() + " => " + player.getHandCards());
 		}
 	}
-}
+
 	public static List<Card> getTopCards(List<Players> playersList) {
 
 		List<Card> topCardsList = new ArrayList<Card>();
@@ -86,30 +85,31 @@ public class WarMethods extends ArrayList<Card> {
 	public static boolean compareCards(Card card1, Card card2) {
 
 		if (card1.getRankValue() == card2.getRankValue()) {
+			
 			return (card1.getSuitWeight() < card2.getSuitWeight());
 		}
 
 		return (card1.getRankValue() < card2.getRankValue());
 	}
 
-	public static int getHighestCard(List<Card> topCardsList) {
+	public static int getHighestCard(List<Card> topCardList) {
 
 		int highestCardIndex = 0;
 
-		for (int i = 1; i < topCardsList.size(); i++) {
-			if (compareCards(topCardsList.get(highestCardIndex), topCardsList.get(i))) {
+		for (int i = 1; i < topCardList.size(); i++) {
+			if (compareCards(topCardList.get(highestCardIndex), topCardList.get(i))) {
 				highestCardIndex = i;
 			}
 
 		}
 
-		System.out.println("\n" + topCardsList.get(highestCardIndex) + " is the HIGHEST!!!");
+		System.out.println("\nHIGHEST CARD : " + topCardList.get(highestCardIndex));
 		System.out.println();
-		
+
 		return highestCardIndex;
 	}
 
-	public static void Game(List<Players> playersList, int numPlayers) {
+	public static void GameStart(List<Players> playersList, int numPlayers) {
 
 		List<Card> topCardsList = new ArrayList<Card>();
 
@@ -119,6 +119,7 @@ public class WarMethods extends ArrayList<Card> {
 
 		topCardsList = (ArrayList<Card>) WarMethods.getTopCards(playersList);
 		System.out.println("\nTOP Cards: " + topCardsList);
+		
 		int highestCardIndex = getHighestCard(topCardsList);
 		Collections.rotate(topCardsList, topCardsList.size() - highestCardIndex);
 		playersList.get(highestCardIndex).getHandCards().addAll(topCardsList);
