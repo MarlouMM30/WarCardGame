@@ -2,7 +2,6 @@ package com.svi.warcard.main;
 
 import java.util.*;
 import java.io.*;
-
 import com.svi.warcard.enums.*;
 import com.svi.warcard.objects.*;
 
@@ -91,22 +90,16 @@ public class Main {
 			
 			scanner.close();
 			
-			System.out.println("\nLOADED SUCCESSFULLY!!!");
+			System.out.println("\nINPUT FILE LOADED SUCCESSFULLY!!!");
 			System.out.println("\nHere is the Initial Deck of Cards: \n");
 			System.out.println(deck); //Displays the Initial Deck of Cards
 			
 		} catch (IOException e) {
 			
 			System.out.println("FILE NOT FOUND!!! >.<");
-			System.out.println("Default Deck Activated!");
-			deck.populate(); // Populate deck with cards
-			System.out.println("\nHere is the Initial DECK of Cards: \n"); // Displays the Initial Deck of Cards by Default Process
 			
-			for (Card cards : deck) {
-				System.out.print(cards.getRankIdentity() + " - " + cards.getSuitIdentity() + " | ");										
-			
-		}
-	
+		}	
+
 		ArrayList<Card> shuffledDeck = WarMethods.shuffleDeck(numShuffles, deck); // Calling shuffled deck from methods															
 		System.out.println("\nHere is the Shuffled DECK of Cards: \n");
 		
@@ -142,4 +135,3 @@ public class Main {
 		}
 	 }
   }
-}
