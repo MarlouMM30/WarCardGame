@@ -96,7 +96,15 @@ public class Main {
 			
 		} catch (IOException e) {
 			
-			System.out.println("FILE NOT FOUND!!! >.<");
+			System.out.println("\nFILE NOT FOUND!!! >.<");
+			System.out.println("\nDEFAULT DECK ACTIVATED!");
+			deck.populate();  // Populate deck
+			System.out.println("\nHere is the Default Initial Deck of Cards: \n"); // Display initial deck of cards
+			for (Card cards : deck) {
+				System.out.print(cards.getRankIdentity() + " of " + cards.getSuitIdentity() + " | "); // Displays the content of the deck
+			}
+
+			System.out.println();
 			
 		}	
 
@@ -124,8 +132,9 @@ public class Main {
 		while (playersList.size() > 1) {
 			playersList.removeIf(players -> players.getHandCards().isEmpty());
 			System.out.println("\nROUND " + roundNum);
-			WarMethods.Game(playersList, numPlayers);
+			WarMethods.GameStart(playersList, numPlayers);
 			roundNum++;
+			
 		}
 		// if player list size = 1 , then game is finished
 		System.out.println("\nGAME OVER!!!");
