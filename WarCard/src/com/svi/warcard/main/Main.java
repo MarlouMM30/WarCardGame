@@ -120,7 +120,7 @@ public class Main {
 		// Create Players
 		List<Players> playersList = new ArrayList<>();
 		for (int p = 0; p < numPlayers; p++) {
-			playersList.add(new Players("PLAYER ", p + 1));
+			playersList.add(new Players("PLAYER " + (p + 1)));
 		}
 
 		// Distribute Cards
@@ -138,7 +138,7 @@ public class Main {
 		}
 		// if player list size = 1 , then game is finished
 		System.out.println("\nGAME OVER!!!");
-		System.out.println("\nWINNER   ==>   " + playersList.get(0).getPlayerName() + playersList.get(0).getPlayerNumber() + "   Rounds: " + (roundNum - 1));
+		System.out.println("\nWINNER   ==>   " + playersList.get(0).getPlayerName() + "   Rounds: " + (roundNum - 1));
 		for (Players player : playersList) {
 			System.out.println("WINNER'S DECK : " + player.getHandCards());
 		}
