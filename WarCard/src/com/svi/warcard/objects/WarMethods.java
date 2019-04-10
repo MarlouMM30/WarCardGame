@@ -66,7 +66,7 @@ public class WarMethods extends ArrayList<Card> {
 
 		for (Players player : playersList) {
 			Collections.reverse(player.getHandCards());
-			System.out.println(player.getPlayerName() + player.getPlayerNumber() + " => " + player.getHandCards());
+			System.out.println(player.getPlayerName() + " => " + player.getHandCards());
 		}
 	}
 
@@ -114,7 +114,7 @@ public class WarMethods extends ArrayList<Card> {
 		List<Card> topCardsList = new ArrayList<Card>();
 
 		for (Players player : playersList) {
-			System.out.println(player.getPlayerName() + player.getPlayerNumber() + " : " + player.getHandCards());
+			System.out.println(player.getPlayerName() + " : " + player.getHandCards());
 		}
 
 		topCardsList = (ArrayList<Card>) WarMethods.getTopCards(playersList);
