@@ -130,9 +130,9 @@ public class Main {
 		System.out.println("\nSTART GAME!!!");
 		int roundNum = 1;
 		while (playersList.size() > 1) {
-			playersList.removeIf(players -> players.getHandCards().isEmpty());
 			System.out.println("\nROUND " + roundNum);
 			WarMethods.GameStart(playersList, numPlayers);
+			playersList.removeIf(players -> players.getHandCards().isEmpty());
 			roundNum++;
 			
 		}
