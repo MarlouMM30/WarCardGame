@@ -109,7 +109,7 @@ public class Main {
 		}	
 
 		ArrayList<Card> shuffledDeck = WarMethods.shuffleDeck(numShuffles, deck); // Calling shuffled deck from methods															
-		System.out.println("\nHere is the Shuffled DECK of Cards: \n");
+		System.out.println("\nHere is the Shuffled Deck of Cards: \n");
 		
 		for (Card card : shuffledDeck) {
 			System.out.print(card.getRankIdentity() + " - " + card.getSuitIdentity() + " || ");
